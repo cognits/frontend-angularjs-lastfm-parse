@@ -1,22 +1,128 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>AngularJS App</title>
+    <head>
+        <meta charset=utf-8 />
+        <title>Example</title>
+        <link rel = "stylesheet" type = "text/css" href="css/styles.css">
+        <!--bootstrap-->
+        <link rel = "stylesheet" type = "text/css" href="bootstrap/css/bootstrap.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+    </head>
+    <body ng-app="AuthApp"  class="color3">
+        <div class="container-full ">
+            <div class="col-md-12">
+                <div class="row color">
+                    <div class="col-md-2">
+                    </div><!--close col2-->
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div id="carousel-example-generic" class="carousel slide " data-ride="carousel" ng-hide="currentUser">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                </ol>
 
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <img  src="sketch/hardwell-01.png"  alt="..."  >
+                                        <div class="carousel-caption">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="sketch/shakira-01.png" alt="..." >
+                                        <div class="carousel-caption">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="sketch/u2-01.png" alt="">
+                                        <div class="carousel-caption">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div> <!-- cierre carousel-example-generic-->
+                        </div> <!--cierre de row-->
+                    </div><!--cierre de col-8-->
+        <div class="col-md-2">
+        </div> 
 
-    <script src="bower_components/angular/angular.js"></script>
+        </div><!--cierre de row1-->
+        </div><!--cierre de col-12-->
 
-    <!-- include source files here... -->
-    <script src="js/script.js"></script>
+        <div class="col-md-12" class="color2">
+            <div class="row color2">
+                <div ng-hide="currentUser" class="container">
 
+                    <div class="col-md-6"> <!--registro de usuario -->
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3">
+                            <form ng-show="scenario == 'Sign up'">
+                                <h2>Sign up</h2>
+                                Email:    <br> <input type="email" ng-model="user.email" id="texto"/><br/>
+                                <br>
+                                Username: <br> <input type="text" ng-model="user.username" id="texto"/><br/>
+                                <br>
+                                Password: <br> <input type="password" ng-model="user.password" id="texto"/><br/>
+                                <br>
+                                <button ng-click="signUp(user)">Sign up</button>
 
-  </head>
+                            </form> <!--colse scenario-->
+                             <br>
+                        </div> <!--close col-3-->
 
-  <body ng-app="app">
+                    </div><!-- close col- 6 -->
+                        <div class="col-md-6 "> <!--log in de usuario-->
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-3">
+                                <form >
+                                    <h2>Log in</h2>
+                                    <br>
+                                    Username:
+                                    <br>
+                                    <input type="text" ng-model="user.username" id="texto"/><br/>
+                                    <br>
+                                    Password: 
+                                    <br>
+                                    <input type="password" ng-model="user.password" id="texto"/><br/>
+                                    <br>
+                                    <button ng-click="logIn(user)">Log in</button>
+                                </form>
+                            </div>
+                    </div>
+                </div> <!--close currentUser-->
+            </div> <!--close row 2-->
+        </div> <!--clse col-12-->
 
-    <h1>{{ title }}</h1>
+        </div> <!---cierre primer container-full -->
+        <div class="container-full ">
+        	<div class="col-md-12 ">
+        		<div ng-show="currentUser" >
+                <h1>Welcome {{currentUser.get('username')}}</h1>
+                <p> You have been successfully logged in</p>
+                <button ng-click="logOut(user)">Log out</button>
+                </div>
+        	</div>
+        </div>
 
-  </body>
+        <!--bootstrap js-->
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <!--angular-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <!--parse-->
+        <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        </body>
 </html>
