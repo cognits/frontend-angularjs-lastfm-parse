@@ -68,26 +68,7 @@
                         <div class="col-md-3">
                         </div>
                         <div class="col-md-3">
-                            <form ng-show="scenario == 'Sign up'">
-                                <h2>Sign up</h2>
-                                Email:    <br> <input type="email" ng-model="user.email" id="texto"/><br/>
-                                <br>
-                                Username: <br> <input type="text" ng-model="user.username" id="texto"/><br/>
-                                <br>
-                                Password: <br> <input type="password" ng-model="user.password" id="texto"/><br/>
-                                <br>
-                                <button ng-click="signUp(user)">Sign up</button>
-
-                            </form> <!--colse scenario-->
-                             <br>
-                        </div> <!--close col-3-->
-
-                    </div><!-- close col- 6 -->
-                        <div class="col-md-6 "> <!--log in de usuario-->
-                            <div class="col-md-3">
-                            </div>
-                            <div class="col-md-3">
-                                <form >
+                        <form >
                                     <h2>Log in</h2>
                                     <br>
                                     Username:
@@ -100,6 +81,26 @@
                                     <br>
                                     <button ng-click="logIn(user)">Log in</button>
                                 </form>
+                           
+                             <br>
+                        </div> <!--close col-3-->
+
+                    </div><!-- close col- 6 -->
+                        <div class="col-md-6 "> <!--log in de usuario-->
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-3">
+                                 <form ng-show="scenario == 'Sign up'">
+                                <h3>Sign up</h3>
+                                Email:    <br> <input type="email" ng-model="user.email" id="texto"/><br/>
+                                <br>
+                                Username: <br> <input type="text" ng-model="user.username" id="texto"/><br/>
+                                <br>
+                                Password: <br> <input type="password" ng-model="user.password" id="texto"/><br/>
+                                <br>
+                                <button ng-click="signUp(user)">Sign up</button>
+
+                            </form> <!--colse scenario-->
                             </div>
                     </div>
                 </div> <!--close currentUser-->
@@ -107,16 +108,95 @@
         </div> <!--clse col-12-->
 
         </div> <!---cierre primer container-full -->
-        <div class="container-full ">
+        <div class="container-full " ng-controller="SearchController">
         	<div class="col-md-12 ">
         		<div ng-show="currentUser" >
-                <h1>Welcome {{currentUser.get('username')}}</h1>
-                <p> You have been successfully logged in</p>
-                <button ng-click="logOut(user)">Log out</button>
+     				<nav class="navbar navbar-inverse " role="navigation">
+  <div class="container-fluid color2">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header ">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" ng-click="logOut(user)">Inicio</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ><img src="sketch/last_fm_logo.png" height="50px"></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categoria de Videos <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="uno" ><a href="#" ng-click="orderBy('name')">Orden de Cancion  a-z</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click="orderBy('-name')">Orden de Cancion z-a</a></li>
+            <li class="divider"></li>
+            <li class="tres"><a href="#" ng-click="orderBy('artist.name')">Orden de Artista a-z </a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click="orderBy('-artist.name')">Orden de Artista z-a </a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click="orderBy('playcount')"> Mejor Play Counts</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click="orderBy('-playcount')"> Menor Play Counts</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click="orderBy('-listeners')"> Mas Listeners</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click="orderBy('listeners')"> Menos Listeners</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click="orderBy('-duration')"> Mas Duration </a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click="orderBy('duration')">Menos Duration </a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group glyphicon glyphicon-search">
+          <input type="text" class="form-control " placeholder="Search" ng-model="buscar" class="">
+        </div>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+            <div class="row">
+        				<div  class ="container" >	
+
+	 		<div class="panel-body">
+                <div class="table-responsive ">
+	 				<table class="table scrollVertical " >	
+					<thead class = "titulos ">		
+						<tr>
+							<th>Name </th>
+							<th>Artist </th>
+		 					<th>Play Counts </th>
+		 					<th>Listeners</th>
+		 					<th>Duration </th>
+	 					</tr>
+					</thead>
+                      
+					<tbody ng-repeat="nombre in phones | orderBy:orderSelect | filter : buscar ">
+
+						<tr>
+							<td ng-show="{{nombre.image[1]}}"><img ng-src="{{nombre.image[1] | pictureSong}}"></td>
+							<td ng-show="!{{nombre.image[1]}}"><img src="http://g.cdn.ecn.cl/musica-pop/files/2012/04/logo-prince.jpg" height="40px"></td>
+							<td>{{nombre.name}}</td>
+							<td>{{nombre.artist.name}}</td>		
+							<td>{{nombre.playcount}}</td>
+							<td>{{nombre.listeners}}
+							<td>{{nombre.duration*1000 | date: 'mm:ss'}}</td>							
+						</tr>
+					</tbody>		
+				</table>
+                </div>
+			</div>
+		</div>
+        	</div>
                 </div>
         	</div>
         </div>
-
         <!--bootstrap js-->
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <!--angular-->
