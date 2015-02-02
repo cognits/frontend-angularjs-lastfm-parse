@@ -65,21 +65,20 @@
                 <div ng-hide="currentUser" class="container">
 
                     <div class="col-md-6"> <!--registro de usuario -->
-                        <div class="col-md-3">
+                        <div class="col-md-1">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5	 col-md-offset-5">
                         <form >
-                                    <h2>Log in</h2>
-                                    <br>
-                                    Username:
-                                    <br>
+                                    <h2 class="centrado">ingresar</h2>
+                                    Correo electronico
+
                                     <input type="text" ng-model="user.username" id="texto"/><br/>
-                                    <br>
-                                    Password: 
-                                    <br>
+                                    <br> 
+                                    Contraseña
+
                                     <input type="password" ng-model="user.password" id="texto"/><br/>
-                                    <br>
-                                    <button ng-click="logIn(user)">Log in</button>
+                                    <br> 
+                                    <button type="button" class="btn  color" ng-click="logIn(user)" >ingresar</button>
                                 </form>
                            
                              <br>
@@ -87,19 +86,17 @@
 
                     </div><!-- close col- 6 -->
                         <div class="col-md-6 "> <!--log in de usuario-->
-                            <div class="col-md-3">
-                            </div>
-                            <div class="col-md-3">
+
+                            <div class="col-md-5">
                                  <form ng-show="scenario == 'Sign up'">
-                                <h3>Sign up</h3>
-                                Email:    <br> <input type="email" ng-model="user.email" id="texto"/><br/>
+                                <h3 class="centrado">Crea tu Perfil</h3>
+                                Nombre: <br> <input type="text" ng-model="user.username" id="texto" class="form-control" /><br/>
+                                Correo:    <br> <input type="email" ng-model="user.email" id="texto" class="form-control" /><br/>
+                                Contraseña: <br> <input type="password" ng-model="user.password" id="texto" class="form-control" /><br/>
+                                <button ng-click="signUp(user) "  class="btn  color">Confirmar</button>
                                 <br>
-                                Username: <br> <input type="text" ng-model="user.username" id="texto"/><br/>
-                                <br>
-                                Password: <br> <input type="password" ng-model="user.password" id="texto"/><br/>
-                                <br>
-                                <button ng-click="signUp(user)">Sign up</button>
-                                <br>
+                                <div class="col-md-1">
+      		                    </div>
                             </form> <!--colse scenario-->
                             <br><br>
                             <br>
@@ -164,11 +161,11 @@
 </nav>
 
             <div class="row">
-        				<div  class ="container" >	
+        				<div  class ="container scrollVertical" >	
 
 	 		<div class="panel-body">
                 <div class="table-responsive ">
-	 				<table class="table scrollVertical " >	
+	 				<table class="table  " >	
 					<thead class = "titulos ">		
 						<tr>
 							<th>Name </th>
