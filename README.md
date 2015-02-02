@@ -42,5 +42,5 @@ Parse in a folder called **bower_components**.
 1. What is Parse doing in the background?
 2. What steps did you take to implement sign up? How can you verify it's correct?
 
-# resultado final
+# Resultado final
 ## http://miltonsms.github.io/frontend-angularjs-lastfm-parse. 
