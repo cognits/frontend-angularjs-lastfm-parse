@@ -124,35 +124,29 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li ><img src="sketch/last_fm_logo.png" height="50px"></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categoria de Videos <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li class="uno" ><a href="#" ng-click="orderBy('name')">Orden de Cancion  a-z</a></li>
+							<ul class="nav navbar-nav">
+        	<li class="dropdown">
+          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categoria de Videos <span class="caret"></span></a>
+         	<ul class="dropdown-menu" role="menu" class="grey">
+            <li class="uno" ><a href="#" >Orden de Cancion  a-z</a></li>
             <li class="divider"></li>
-            <li><a href="#" ng-click="orderBy('-name')">Orden de Cancion z-a</a></li>
+            <li><a href="#" >Orden de Cancion z-a</a></li>
             <li class="divider"></li>
-            <li class="tres"><a href="#" ng-click="orderBy('artist.name')">Orden de Artista a-z </a></li>
+            <li class="tres"><a href="#">Orden de Artista a-z </a></li>
             <li class="divider"></li>
-            <li><a href="#" ng-click="orderBy('-artist.name')">Orden de Artista z-a </a></li>
+            <li><a href="#" >Orden de Artista z-a </a></li>
             <li class="divider"></li>
-            <li><a href="#" ng-click="orderBy('playcount')"> Mejor Play Counts</a></li>
+            <li><a href="#" > Mejor Play Counts</a></li>
             <li class="divider"></li>
-            <li><a href="#" ng-click="orderBy('-playcount')"> Menor Play Counts</a></li>
-            <li class="divider"></li>
-            <li><a href="#" ng-click="orderBy('-listeners')"> Mas Listeners</a></li>
-            <li class="divider"></li>
-            <li><a href="#" ng-click="orderBy('listeners')"> Menos Listeners</a></li>
-            <li class="divider"></li>
-            <li><a href="#" ng-click="orderBy('-duration')"> Mas Duration </a></li>
-            <li class="divider"></li>
-            <li><a href="#" ng-click="orderBy('duration')">Menos Duration </a></li>
+            <li><a href="#" > Menor Play Counts</a></li>
           </ul>
         </li>
       </ul>
+				<img src="sketch/last_fm_logo.png" height="50px">
       <form class="navbar-form navbar-right" role="search">
-        <div class="form-group glyphicon glyphicon-search">
+
+        <div class="form-group glyphicon ">
+					
           <input type="text" class="form-control " placeholder="Search" ng-model="buscar" class="">
         </div>
       </form>
@@ -165,27 +159,46 @@
 
 	 		<div class="panel-body">
                 <div class="table-responsive ">
-	 				<table class="table  " >	
-					<thead class = "titulos ">		
+	 				<table class="table table-hover" >	
+					<thead class = "titulos">		
 						<tr>
-							<th>Name </th>
-							<th>Artist </th>
-		 					<th>Play Counts </th>
-		 					<th>Listeners</th>
-		 					<th>Duration </th>
+							<th class="color4">Inforcacion de <br> la canción</th>
+							<th>
+								<a href="" ng-click="orderBy('name')">	
+		 							Name </a>
+		 							<span class="caret" style="cursor: pointer" ng-click="orderBy('-name')"></span>
+							</th>
+							
+							<th>
+								<a href="" ng-click="orderBy('artist.name')">	
+		 							Artist </a>
+		 							<span class="caret" style="cursor: pointer" ng-click="orderBy('-artist.name')"></span></th>
+		 					<th>
+		 						<a href="" ng-click="orderBy('-playcount')">	
+		 							Play Counts </a>
+		 							<span class="caret" style="cursor: pointer" ng-click="orderBy('playcount')"></span></th>
+		 					<th>
+		 						<a href="" ng-click="orderBy('-listeners')">	
+		 							Listeners </a>
+		 							<span class="caret" style="cursor: pointer" ng-click="orderBy('listeners')"></span>
+		 						</th>
+		 					<th>
+		 						<a href="" ng-click="orderBy('-duration')">	
+		 							Duration </a>
+		 							<span class="caret" style="cursor: pointer" ng-click="orderBy('duration')"></span>
+		 						</th>
 	 					</tr>
-					</thead>
-                      
+					</thead>                      
 					<tbody ng-repeat="nombre in phones | orderBy:orderSelect | filter : buscar ">
 
 						<tr>
-							<td ng-show="{{nombre.image[1]}}"><img ng-src="{{nombre.image[1] | pictureSong}}"></td>
-							<td ng-show="!{{nombre.image[1]}}"><img src="http://g.cdn.ecn.cl/musica-pop/files/2012/04/logo-prince.jpg" height="40px"></td>
-							<td>{{nombre.name}}</td>
-							<td>{{nombre.artist.name}}</td>		
-							<td>{{nombre.playcount}}</td>
-							<td>{{nombre.listeners}}
-							<td>{{nombre.duration*1000 | date: 'mm:ss'}}</td>							
+							<td ng-show="{{nombre.image[1]}}"><a href="{{nombre.url}}" target="blank"><img ng-src="{{nombre.image[1] | pictureSong}}"></a></td>
+							<td ng-show="!{{nombre.image[1]}}"><img src="http://1.bp.blogspot.com/-5eaohxP9-QI/UTVBFWbgyWI/AAAAAAAAABI/cwZ7dtCH2u0/s1600/a-musica.png" height="55px"></td>
+							<td class="success" >{{nombre.name}}</td>
+							<td class="warning">{{nombre.artist.name}}</td>		
+							<td class="active" >{{nombre.playcount}}</td>
+							<td class="danger">{{nombre.listeners}}
+							<td class="info">{{nombre.duration*1000 | date: 'mm:ss'}}</td>							
 						</tr>
 					</tbody>		
 				</table>
@@ -199,7 +212,7 @@
         <!--bootstrap js-->
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <!--angular-->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
         <!--parse-->
         <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>

@@ -5,12 +5,6 @@
 	background: #ED1B24;
 	color: #fff;
 }
-.color3{
-	background: url(../sketch/tres.png);
-	color: #fff;
-	background-size: 100% ; 
-
-}
 #texto{
     color: black;
 }
@@ -25,3 +19,9 @@ display: block;
   /*use calc for fixed ie9 & <*/
   overflow-Y: scroll;
   }
+.color4{
+	color: #363de3;
+}
+.grey{
+	background-color : grey;
+}
