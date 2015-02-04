@@ -43,5 +43,5 @@ Parse in a folder called **bower_components**.
 2. What steps did you take to implement sign up? How can you verify it's correct?
 
 # Resultado final
-## http://miltonsms.github.io/frontend-angularjs-lastfm-parse. 
+##  http://miltonsms.github.io/frontend-angularjs-lastfm-parse.
 
