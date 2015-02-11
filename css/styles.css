@@ -1,0 +1,46 @@
+.color{
+	background: #000;
+	}
+
+.color2{
+	background: #ED1B24;
+	color: #fff;
+}
+
+#texto{
+    color: black;
+}
+.centrado{
+	text-align: center; 
+}
+.scrollVertical{
+/* Scroll Bar Vertical en la tabla del JSON */
+display: block;
+  height: calc(80vh - 1px);
+  min-height: calc(500px + 1px);
+  /*use calc for fixed ie9 & <*/
+  overflow-Y: scroll;
+  }
+.color4{
+	color: #363de3;
+}
+.grey{
+	background-color : grey;
+}
+
+.altura{
+	height: 390px;
+}
+.altura2{
+	height: 3px;
+}
+.colorpokemon{
+	background: red;
+}
+.colorpokemon2{
+	background: #fff;
+}
+
+#car{
+	position: relative;
+}
