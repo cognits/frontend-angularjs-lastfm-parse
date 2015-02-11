@@ -61,3 +61,10 @@ $scope.filterTypes = [
 	];
 	$scope.selectedFilter = $scope.filterTypes[0];
 });
+
+
+
+
+$(document).ready(function () {
+$('#car').draggable();
+});
